@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.rowcoldemo.ui.theme.RowColDemoTheme
+import androidx.compose.ui.layout.FirstBaseline
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,19 +59,21 @@ fun TextCell(text: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
-    Row(verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier.size(width = 400.dp, height = 200.dp)
-    ) {
-        TextCell("1")
-        TextCell("2")
-        TextCell("3")
+    Row {
+        Text(
+            text = "Large Text\n\nMore Text",
+            Modifier.alignBy(FirstBaseline),
+            fontSize = 40.sp,
+            fontWeight = FontWeight.Bold
+        )
+        Text(
+            text = "Small Text",
+            modifier = Modifier.paddingFrom(
+                alignmentLine = FirstBaseline, before = 80.dp, after = 0.dp),
+            fontSize = 32.sp,
+            fontWeight = FontWeight.Bold
+        )
     }
-    //Column(horizontalAlignment = Alignment.End,
-        //modifier = modifier.width(250.dp)) {
-        //TextCell("1")
-        //TextCell("2")
-        //TextCell("3")
-    //}
 }
 
 @Preview(showBackground = true)
