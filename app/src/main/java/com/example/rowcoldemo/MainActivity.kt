@@ -58,49 +58,19 @@ fun TextCell(text: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+    Row(verticalAlignment = Alignment.CenterVertically,
+        modifier = modifier.size(width = 400.dp, height = 200.dp)
     ) {
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                TextCell("1")
-                TextCell("2")
-                TextCell("3")
-            }
-
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                TextCell("4")
-                TextCell("5")
-                TextCell("6")
-            }
-
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                TextCell("7")
-                TextCell("8")
-            }
-        }
-
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            TextCell("9")
-            TextCell("10")
-            TextCell("11")
-        }
+        TextCell("1")
+        TextCell("2")
+        TextCell("3")
     }
+    //Column(horizontalAlignment = Alignment.End,
+        //modifier = modifier.width(250.dp)) {
+        //TextCell("1")
+        //TextCell("2")
+        //TextCell("3")
+    //}
 }
 
 @Preview(showBackground = true)
