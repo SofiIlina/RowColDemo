@@ -59,7 +59,9 @@ fun TextCell(text: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
-    Row {
+    Row (modifier = Modifier
+            .padding(top = 40.dp)
+        .fillMaxWidth()){
         Text(
             text = "Large Text\n\nMore Text",
             Modifier.alignBy(FirstBaseline),
@@ -73,6 +75,13 @@ fun MainScreen(modifier: Modifier = Modifier) {
             fontSize = 32.sp,
             fontWeight = FontWeight.Bold
         )
+    }
+    Row (modifier = Modifier
+        .padding(top = 150.dp)
+        .fillMaxWidth()) {
+        TextCell("1", Modifier.weight(weight = 0.2f, fill = true))
+        TextCell("2", Modifier.weight(weight = 0.4f, fill = true))
+        TextCell("3", Modifier.weight(weight = 0.3f, fill = true))
     }
 }
 
